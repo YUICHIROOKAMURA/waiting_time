@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウンセリングが「すぐには始まらない」理由 - 時間の力を使う営み</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(to bottom, #f5f7fa 0%, #e8eef5 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダー */
+        header {
+            background: linear-gradient(135deg, #5B7C99 0%, #4A6278 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* セクション共通 */
+        section {
+            background: white;
+            margin: 40px auto;
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #5B7C99;
+            font-size: 2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #E8926F;
+        }
+
+        h3 {
+            color: #4A6278;
+            font-size: 1.5em;
+            margin: 30px 0 20px;
+        }
+
+        /* イントロダクション */
+        .intro-box {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #5B7C99;
+            margin-bottom: 30px;
+        }
+
+        /* 2つの支援形態の対比 */
+        .support-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .support-card {
+            padding: 30px;
+            border-radius: 12px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .support-card.immediate {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+        }
+
+        .support-card.gradual {
+            background: linear-gradient(135deg, #5B7C99 0%, #4A6278 100%);
+            color: white;
+        }
+
+        .support-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .support-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .support-description {
+            font-size: 1em;
+            line-height: 1.7;
+        }
+
+        .support-examples {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.95em;
+        }
+
+        /* 両面性の表示 */
+        .dual-nature {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .nature-card {
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #ddd;
+        }
+
+        .nature-card.drawback {
+            border-color: #ff6b6b;
+            background: #fff5f5;
+        }
+
+        .nature-card.benefit {
+            border-color: #51cf66;
+            background: #f4fcf4;
+        }
+
+        .nature-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nature-title svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        .nature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nature-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .nature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .drawback .nature-list li::before {
+            background: #ff6b6b;
+        }
+
+        .benefit .nature-list li::before {
+            background: #51cf66;
+        }
+
+        /* タイムライン */
+        .timeline-container {
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #5B7C99 0%, #E8926F 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-event {
+            position: relative;
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-event:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-event:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-event:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-event:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-event:nth-child(5) { animation-delay: 1s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 25px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-event:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            border: 4px solid #5B7C99;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .timeline-label {
+            font-weight: bold;
+            color: #5B7C99;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .timeline-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 視点切り替え */
+        .perspective-toggle {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .toggle-buttons {
+            display: inline-flex;
+            background: #e9ecef;
+            border-radius: 30px;
+            padding: 4px;
+        }
+
+        .toggle-btn {
+            padding: 12px 30px;
+            border: none;
+            background: transparent;
+            border-radius: 26px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(91, 124, 153, 0.1);
+            color: #5B7C99;
+        }
+
+        .toggle-btn.active {
+            background: #5B7C99;
+            color: white;
+            box-shadow: 0 2px 8px rgba(91, 124, 153, 0.3);
+        }
+
+        .toggle-btn.active:hover {
+            background: #4A6278;
+        }
+
+        .perspective-content {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+        }
+
+        .perspective-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* アセスメント指標 */
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .assessment-item {
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 5px solid #E8926F;
+        }
+
+        .assessment-title {
+            font-weight: bold;
+            color: #5B7C99;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .assessment-description {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* 時間の力 */
+        .time-power-box {
+            background: linear-gradient(135deg, #5B7C99 0%, #4A6278 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .time-power-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .time-power-description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* 向き不向き判断基準 */
+        .suitability {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .suitability-card {
+            padding: 30px;
+            border-radius: 12px;
+            border: 3px solid;
+        }
+
+        .suitability-card.suitable {
+            border-color: #51cf66;
+            background: linear-gradient(to bottom, #f4fcf4, white);
+        }
+
+        .suitability-card.unsuitable {
+            border-color: #ff6b6b;
+            background: linear-gradient(to bottom, #fff5f5, white);
+        }
+
+        .suitability-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .suitability-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suitability-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 引用・参考 */
+        .references {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .references h3 {
+            color: #5B7C99;
+            margin-bottom: 20px;
+        }
+
+        .references ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .references li {
+            padding: 12px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .references li:last-child {
+            border-bottom: none;
+        }
+
+        .references a {
+            color: #5B7C99;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .references a:hover {
+            color: #E8926F;
+            text-decoration: underline;
+        }
+
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            section {
+                padding: 40px 25px;
+            }
+
+            .support-comparison,
+            .dual-nature,
+            .assessment-grid,
+            .suitability {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .toggle-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .toggle-btn {
+                padding: 12px 20px;
+                font-size: 0.95em;
+                width: 100%;
+            }
+
+            .time-power-box {
+                padding: 30px 20px;
+            }
+
+            .time-power-title {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .support-icon {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>カウンセリングが「すぐには始まらない」理由</h1>
+            <p class="subtitle">時間の力を使う営み - 待つことが持つ治療的意味</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- イントロダクション -->
+        <section>
+            <div class="intro-box">
+                <p style="font-size: 1.1em; font-weight: 600; margin-bottom: 15px;">なぜカウンセリングはすぐに始まらないのでしょうか?</p>
+                <p>カウンセリングを申し込むと、初回面接まで数日から数週間かかることがあります。困っている時にすぐ会えないことは、一見すると不親切に思えるかもしれません。しかし、この「待つ時間」には、実は深い治療的な意味があります。</p>
+                <p style="margin-top: 15px;">この図解では、カウンセリングが「時間の力」をどのように活用しているのか、そして予約までの待機時間が持つ意味について、5分で理解できるように解説します。</p>
+            </div>
+        </section>
+
+        <!-- 2つの支援形態 -->
+        <section>
+            <h2>2つの支援の形:「今すぐ」と「時間をかけて」</h2>
+            <p>心の支援には、大きく分けて2つのアプローチがあります。どちらも重要ですが、目的と仕組みが根本的に異なります。</p>
+            
+            <div class="support-comparison">
+                <div class="support-card immediate">
+                    <span class="support-icon">📞</span>
+                    <div class="support-title">即座につながる支援</div>
+                    <div class="support-description">
+                        危機的な状況で「今この瞬間」に必要な支援。電話をかければすぐに誰かと話せることが本質です。
+                    </div>
+                    <div class="support-examples">
+                        <strong>例:</strong><br>
+                        • いのちの電話<br>
+                        • よりそいホットライン<br>
+                        • 救急医療<br>
+                        • 警察・消防
+                    </div>
+                </div>
+
+                <div class="support-card gradual">
+                    <span class="support-icon">🕐</span>
+                    <div class="support-title">時間をかける支援</div>
+                    <div class="support-description">
+                        時間の経過を味方につけて、心や状況が少しずつ変化していくことを後押しする支援。予約制であること自体が、カウンセリングの仕組みの一部として組み込まれています。
+                    </div>
+                    <div class="support-examples">
+                        <strong>例:</strong><br>
+                        • カウンセリング<br>
+                        • 心理療法<br>
+                        • 精神分析<br>
+                        • 長期的な心理支援
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #fff9e6; padding: 25px; border-radius: 8px; border-left: 5px solid #E8926F; margin-top: 30px;">
+                <strong>重要な違い:</strong> 危機的状況(希死念慮、激しいパニックなど)では、即座につながる支援が必要です。カウンセリングは緊急対応には向いていません。<br><br>
+                もし今あなたが「今すぐ誰かと話さないと危ない」と感じているなら、いのちの電話(0120-783-556)やよりそいホットライン(0120-279-338)に電話してください。24時間、無料で相談できます。<br><br>
+                一方で、時間をかけて根本的な変化を目指す場合には、カウンセリングの仕組みが力を発揮します。
+            </div>
+        </section>
+
+        <!-- すぐに会えないことの両面性 -->
+        <section>
+            <h2>すぐに会えないことの一長一短</h2>
+            <p>カウンセリングがすぐに始まらないことには、明確な短所と長所の両面があります。どちらも正直に見つめることが大切です。</p>
+
+            <div class="dual-nature">
+                <div class="nature-card drawback">
+                    <div class="nature-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                        短所・限界
+                    </div>
+                    <ul class="nature-list">
+                        <li><strong>緊急時には不適切:</strong> 希死念慮や深刻な危機状態には対応できません</li>
+                        <li><strong>アクセスの障壁:</strong> すぐに助けを求めたい時に待たされることへの苛立ち</li>
+                        <li><strong>不親切に見える:</strong> 困っている人を「たらい回し」にしているように感じられる</li>
+                        <li><strong>予約調整の手間:</strong> 何度もメールや電話でやり取りする煩わしさ</li>
+                    </ul>
+                </div>
+
+                <div class="nature-card benefit">
+                    <div class="nature-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#51cf66" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        長所・治療的意味
+                    </div>
+                    <ul class="nature-list">
+                        <li><strong>混乱の鎮静化:</strong> 激しい感情や興奮が自然と落ち着く時間</li>
+                        <li><strong>自己省察の機会:</strong> 自分や周囲を冷静に見つめ直す余裕</li>
+                        <li><strong>準備の時間:</strong> 何を話すか、どう伝えるかを整理できる</li>
+                        <li><strong>未来の約束:</strong> 「来週カウンセラーに会える」という見通しが支えになる</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #e7f5ff; padding: 25px; border-radius: 8px; margin-top: 30px;">
+                <strong>核心的な洞察:</strong> 即座に会うことは、混乱や興奮をさらに強める側面もあります。感情が高ぶっている時に、落ち着いて自分の問題について話すことは実は難しいのです。待つ時間は、心が「話せる状態」に整う時間でもあります。<br><br>
+                <strong>あなたの焦りは自然な反応です:</strong> 「すぐに会えない」と言われて苛立ちを感じるのは当然のことです。困っている時に待たされることは、誰でも不快に感じます。この図解は、その苛立ちを否定するためではなく、待つ時間に別の意味もあることを知ってもらうためのものです。
+            </div>
+        </section>
+
+        <!-- タイムライン -->
+        <section>
+            <h2>予約までの時間に何が起きるか - 2つの視点から</h2>
+            <p>カウンセリング申し込みから初回面接までの流れを、時系列で見てみましょう。同じ時間でも、クライアント側とカウンセラー側では異なる体験が起きています。</p>
+            <p style="background: #e7f5ff; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <strong>💡 使い方:</strong> 下のボタンで視点を切り替えられます。クライアント視点では「待つ時間の体験」が、カウンセラー視点では「観察している内容」が表示されます。
+            </p>
+
+            <div class="perspective-toggle">
+                <div class="toggle-buttons">
+                    <button class="toggle-btn active" onclick="togglePerspective('client')">
+                        クライアント側の体験
+                    </button>
+                    <button class="toggle-btn" onclick="togglePerspective('counselor')">
+                        カウンセラー側の観察
+                    </button>
+                </div>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">1. カウンセリング申し込み</div>
+                            <div class="timeline-description client-view">
+                                困っている状況を抱えて、カウンセリング機関にメールや電話で連絡。何を書けばいいのか迷いながら、自分の状況を言葉にしようとする。
+                            </div>
+                            <div class="timeline-description counselor-view" style="display: none;">
+                                申し込みフォームや初回連絡の内容、文体、緊急度の表現から、クライアントの現在の心理状態と言語化能力の初期評価を開始。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">2. 予約日調整のやり取り</div>
+                            <div class="timeline-description client-view">
+                                「来週の火曜日は?」「水曜日の午後は?」と何度かメールを往復。すぐに会えないことへの焦りや、返信を待つ時間の長さを感じる。
+                            </div>
+                            <div class="timeline-description counselor-view" style="display: none;">
+                                返信の速度、時間調整への柔軟性、コミュニケーションの丁寧さから、「時間に耐える力」や「計画を立てる能力」を観察。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">3. 待機期間(数日〜数週間)</div>
+                            <div class="timeline-description client-view">
+                                予約日まで待つ時間。欲求不満が募ることもあれば、未来に約束があることで「それまで頑張ろう」と思えることも。自分の問題を整理し始める人もいる。
+                            </div>
+                            <div class="timeline-description counselor-view" style="display: none;">
+                                この期間のクライアントの行動(追加の連絡、キャンセル、事前準備など)が、重要なアセスメント情報になる。時間をどう過ごすかに、その人の対処パターンが現れる。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">4. 予約前日〜当日</div>
+                            <div class="timeline-description client-view">
+                                「明日カウンセリングだ」という意識。何を話そうか考えたり、逆に緊張して眠れなかったり。待っていた時間がいよいよ終わる。
+                            </div>
+                            <div class="timeline-description counselor-view" style="display: none;">
+                                時間通りに来るか、早く来すぎるか、遅刻するか。当日の振る舞いから、時間への態度や不安の程度を読み取る。これまでの観察と統合していく。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-label">5. 初回面接</div>
+                            <div class="timeline-description client-view">
+                                ようやくカウンセラーと対面。待っていた間に考えたことや感じたことも含めて、話し始める。待った時間が、話の深さに影響していることも。
+                            </div>
+                            <div class="timeline-description counselor-view" style="display: none;">
+                                待機期間の体験を含めて面接を開始。「どのように待ちましたか?」という問いから、時間の力をすでに活用し始めている。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- カウンセラーが観察していること -->
+        <section>
+            <h2>カウンセラーが待機期間に観察していること</h2>
+            <p>予約までの時間は、カウンセラーにとって重要な<strong>アセスメント(見立て・評価)</strong>の機会です。「アセスメント」とは、その人がどのような状態にあり、どんな支援が必要かを理解するための情報収集です。待機期間中の以下のような点を観察しています。</p>
+
+            <div class="assessment-grid">
+                <div class="assessment-item">
+                    <div class="assessment-title">返信の速度と内容</div>
+                    <div class="assessment-description">
+                        <strong>例:申し込み後24時間以内に複数回連絡</strong><br>
+                        → 時間に耐えられない切迫感、衝動性、不安の強さの可能性<br><br>
+                        <strong>例:2〜3日後に落ち着いた返信</strong><br>
+                        → 時間を調整できる余裕、計画性、準備する力<br><br>
+                        <strong>例:1週間以上かかって慎重な文面</strong><br>
+                        → 決断への躊躇、慎重さ、または書くことへのハードルの高さ
+                    </div>
+                </div>
+
+                <div class="assessment-item">
+                    <div class="assessment-title">申し込み内容の丁寧さ</div>
+                    <div class="assessment-description">
+                        <strong>例:時系列で詳細に状況を記述</strong><br>
+                        → 言語化能力、時間をかけて準備する力、整理する力<br><br>
+                        <strong>例:「つらいです。助けてください」のみ</strong><br>
+                        → 言葉にできないほどの苦痛、または言語化の困難<br><br>
+                        <strong>例:感情を多く含む長文</strong><br>
+                        → 現在の苦痛の強さ、吐き出したい気持ち、表現の豊かさ
+                    </div>
+                </div>
+
+                <div class="assessment-item">
+                    <div class="assessment-title">予約日までの行動</div>
+                    <div class="assessment-description">
+                        <strong>例:毎日のように追加の連絡</strong><br>
+                        → 不安の強さ、一人で抱えることの困難、待つことへの耐性の低さ<br><br>
+                        <strong>例:予約を何度も変更</strong><br>
+                        → 決断の揺らぎ、回避傾向、または現実的な制約<br><br>
+                        <strong>例:予約後は静かに待つ</strong><br>
+                        → 時間の力を受け入れる能力、または諦めと区別が必要
+                    </div>
+                </div>
+
+                <div class="assessment-item">
+                    <div class="assessment-title">時間への態度</div>
+                    <div class="assessment-description">
+                        <strong>例:予約時刻ちょうどに到着</strong><br>
+                        → 約束への誠実さ、構造への適応力、時間管理能力<br><br>
+                        <strong>例:30分以上早く到着</strong><br>
+                        → 不安の高さ、熱心さ、または時間の見積もりの困難<br><br>
+                        <strong>例:理由なく遅刻</strong><br>
+                        → 時間管理の困難、カウンセリングへの抵抗、または無意識の回避
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #fff3e0; padding: 25px; border-radius: 8px; border-left: 5px solid #E8926F; margin-top: 30px;">
+                <strong>重要な注意:</strong> これらの観察は「良い・悪い」の判断ではありません。その人がどのように時間を体験し、どのような支援が必要かを理解するための手がかりです。早い返信も遅い返信も、それぞれに意味があり、カウンセリングで扱うべきテーマを教えてくれます。
+            </div>
+        </section>
+
+        <!-- 時間の力 -->
+        <section>
+            <h2>「時間の力」を使うとはどういうことか</h2>
+            
+            <div class="time-power-box">
+                <div class="time-power-title">時間をかけることで可能になること</div>
+                <div class="time-power-description">
+                    カウンセリングは、即座に物事を解決する営みではありません。<br>
+                    時間の経過を通じて、心や状況が少しずつ変化していくことを後押しする仕事です。<br><br>
+                    予約までの待機時間も、この「時間の力」を発動させる最初の仕掛けなのです。
+                </div>
+            </div>
+
+            <div style="margin-top: 40px;">
+                <h3>時間が持つ3つの力</h3>
+                
+                <div style="background: linear-gradient(to right, #f8f9fa, #e9ecef); padding: 30px; border-radius: 12px; margin: 20px 0;">
+                    <div style="font-size: 1.3em; font-weight: bold; color: #5B7C99; margin-bottom: 15px;">
+                        1. 鎮静化の力
+                    </div>
+                    <p>激しい感情や興奮は、時間とともに自然と落ち着いていきます。何も「解決」していなくても、3日後、1週間後には、同じ出来事への感じ方が変わっていることがあります。待つことで、より冷静に自分の状況を見られるようになります。</p>
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-top: 15px; border-left: 3px solid #E8926F;">
+                        <strong>例:</strong> 上司と大喧嘩をした直後は怒りで頭がいっぱいですが、3日後には「自分にも問題があったかも」と思えるように。申し込み時は「今すぐ話したい!」でも、予約日が近づくと落ち着いて準備できることがあります。
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(to right, #f8f9fa, #e9ecef); padding: 30px; border-radius: 12px; margin: 20px 0;">
+                    <div style="font-size: 1.3em; font-weight: bold; color: #5B7C99; margin-bottom: 15px;">
+                        2. 省察の力
+                    </div>
+                    <p>未来に約束された面接があることで、「我に返る」時間が生まれます。「来週カウンセラーに会う」という見通しがあると、それまでの間、自分や周囲を見つめ直すことができます。この準備の時間が、面接をより深いものにします。</p>
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-top: 15px; border-left: 3px solid #E8926F;">
+                        <strong>例:</strong> 「来週カウンセラーに何を話そう?」と考える中で、普段意識していなかった自分のパターンに気づく。「いつも同じような場面で怒っている」「実は親との関係が影響しているかも」など、待つ時間が自己理解を深めます。
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(to right, #f8f9fa, #e9ecef); padding: 30px; border-radius: 12px; margin: 20px 0;">
+                    <div style="font-size: 1.3em; font-weight: bold; color: #5B7C99; margin-bottom: 15px;">
+                        3. 変化の力
+                    </div>
+                    <p>待っている間に、状況そのものが動くことがあります。人間関係が変わったり、新しい視点を得たり、あるいは問題が自然と解決することも。時間は、私たちが意識しないところでも働き続けています。</p>
+                    <div style="background: white; padding: 20px; border-radius: 8px; margin-top: 15px; border-left: 3px solid #E8926F;">
+                        <strong>例:</strong> パートナーとの関係で悩んで申し込んだが、予約までの1週間で相手から歩み寄りがあった。あるいは、職場の問題が異動で解消された。時には「カウンセリングに行く必要がなくなった」という良い変化も起きます。
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #e7f5ff; padding: 25px; border-radius: 8px; margin-top: 30px;">
+                <strong>「待てる力」の獲得:</strong> カウンセリングを通じて身につけたい力の一つが、この「時間を味方につける力」です。すぐに解決を求めず、時間の経過を信じて待てるようになること。これは、カウンセリングの外でも人生を支える力になります。
+            </div>
+        </section>
+
+        <!-- 向き不向き -->
+        <section>
+            <h2>カウンセリングが向いている状況・向いていない状況</h2>
+            <p>すべての問題にカウンセリングが適しているわけではありません。自分の状況に照らして、適切な支援を選ぶことが大切です。</p>
+
+            <div class="suitability">
+                <div class="suitability-card suitable">
+                    <div class="suitability-title" style="color: #2f9e44;">
+                        カウンセリングが向いている状況
+                    </div>
+                    <ul class="suitability-list">
+                        <li><strong>時間をかけて向き合いたい問題がある</strong><br>
+                        人間関係、自己理解、生き方の悩みなど、即答のない問いに取り組む場合</li>
+                        
+                        <li><strong>繰り返すパターンを変えたい</strong><br>
+                        同じような失敗や苦しみを繰り返してしまう自分のあり方を見つめ直したい</li>
+                        
+                        <li><strong>言葉にして整理したい</strong><br>
+                        もやもやした感情や考えを、誰かと話しながら明確にしていきたい</li>
+                        
+                        <li><strong>安定した関係の中で変化したい</strong><br>
+                        定期的に会う関係の中で、少しずつ自分を変えていく準備がある</li>
+                    </ul>
+                </div>
+
+                <div class="suitability-card unsuitable">
+                    <div class="suitability-title" style="color: #c92a2a;">
+                        カウンセリングが向いていない状況
+                    </div>
+                    <ul class="suitability-list">
+                        <li><strong>今すぐ助けが必要な危機</strong><br>
+                        希死念慮、激しいパニック、暴力の危険など、緊急対応が必要な状況</li>
+                        
+                        <li><strong>即答を求めている</strong><br>
+                        「どうすればいいか教えてほしい」「今日中に答えがほしい」という期待</li>
+                        
+                        <li><strong>具体的な情報提供が必要</strong><br>
+                        制度の説明、医学的診断、法律相談など、専門的情報が必要な場合</li>
+                        
+                        <li><strong>待つ余裕がない</strong><br>
+                        数日〜数週間待つことに耐えられないほど切迫している状況</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 40px;">
+                <h3 style="color: #5B7C99; margin-bottom: 20px;">選択の目安</h3>
+                <p><strong>こんな質問を自分に投げかけてみてください:</strong></p>
+                <ul style="margin-top: 15px; padding-left: 25px;">
+                    <li>今すぐ誰かと話さないと危険な状態ですか? → <strong>YES</strong> なら緊急支援(いのちの電話など)</li>
+                    <li>数日〜数週間待つことができますか? → <strong>YES</strong> ならカウンセリングの選択肢が開けます</li>
+                    <li>即座の答えではなく、時間をかけて考えたいですか? → <strong>YES</strong> ならカウンセリングが適しています</li>
+                    <li>定期的に通うことができますか? → <strong>YES</strong> ならカウンセリングの構造を活用できます</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- まとめ -->
+        <section>
+            <h2>まとめ:「すぐに会えない」ことの意味</h2>
+            
+            <div style="background: linear-gradient(135deg, #5B7C99 0%, #4A6278 100%); color: white; padding: 40px; border-radius: 12px; margin: 30px 0;">
+                <p style="font-size: 1.2em; line-height: 1.9;">
+                    カウンセリングが「すぐには始まらない」のは、不親切だからでも、たらい回しにしているからでもありません。
+                </p>
+                <p style="font-size: 1.2em; line-height: 1.9; margin-top: 20px;">
+                    それは、<strong>時間の力をカウンセリングの仕組みの一部として組み込んでいる</strong>からです。
+                </p>
+                <p style="font-size: 1.2em; line-height: 1.9; margin-top: 20px;">
+                    予約までの待機時間は、感情を鎮静化し、自己を省察し、変化の芽を育てる時間です。
+                </p>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 12px; margin-top: 30px;">
+                <h3 style="color: #5B7C99; margin-bottom: 20px;">この図解で理解してほしかったこと</h3>
+                <ol style="padding-left: 25px; line-height: 1.8;">
+                    <li style="margin: 15px 0;"><strong>緊急支援とカウンセリングは別物:</strong> どちらも大切ですが、目的と仕組みが違います</li>
+                    <li style="margin: 15px 0;"><strong>待つ時間は「ムダ」ではない:</strong> 治療的な意味を持つ、計算された時間です</li>
+                    <li style="margin: 15px 0;"><strong>カウンセラーは観察している:</strong> 待機期間の行動が、重要な情報を提供します</li>
+                    <li style="margin: 15px 0;"><strong>時間の力を信じる:</strong> 即座の解決ではなく、変化のプロセスを支える営み</li>
+                    <li style="margin: 15px 0;"><strong>向き不向きがある:</strong> 自分の状況に合った支援を選ぶことが大切</li>
+                </ol>
+            </div>
+
+            <div style="background: #fff9e6; padding: 25px; border-radius: 8px; border-left: 5px solid #E8926F; margin-top: 30px;">
+                <strong>最後に:</strong> もしあなたが今カウンセリングを申し込んで「すぐには会えない」と言われたなら、それは拒絶ではありません。カウンセリングという営みが持つ、時間を大切にする姿勢の表れです。予約日までの時間を、焦らず、自分と向き合う時間として過ごしてみてください。その時間もまた、カウンセリングの一部なのです。
+            </div>
+        </section>
+
+        <!-- 参考情報 -->
+        <section class="references">
+            <h3>参考情報・さらに深く学びたい方へ</h3>
+            <ul>
+                <li>
+                    <strong>緊急時の相談窓口:</strong><br>
+                    <a href="https://www.mhlw.go.jp/mamorouyokokoro/" target="_blank">厚生労働省 - まもろうよこころ(相談窓口一覧)</a><br>
+                    いのちの電話: <a href="https://www.inochinodenwa.org/" target="_blank">https://www.inochinodenwa.org/</a><br>
+                    よりそいホットライン: 0120-279-338(24時間無料)
+                </li>
+                <li>
+                    <strong>カウンセリング・心理療法について:</strong><br>
+                    <a href="https://www.jsccp.jp/" target="_blank">日本臨床心理士会</a> - カウンセリングの基本情報<br>
+                    <a href="https://www.jpa.or.jp/" target="_blank">日本心理学会</a> - 心理学の基礎知識
+                </li>
+                <li>
+                    <strong>推薦図書:</strong><br>
+                    河合隼雄『カウンセリングの実際』(創元社) - 待つことの意味について<br>
+                    平木典子『カウンセリングとは何か』(朝日新聞出版) - カウンセリングの全体像<br>
+                    神田橋條治『精神療法面接のコツ』(岩崎学術出版社) - アセスメントの視点
+                </li>
+                <li>
+                    <strong>この図解について:</strong><br>
+                    カウンセリングの「すぐには始まらない」という特性は、精神分析的心理療法やカウンセリング理論で広く認識されている治療的要素です。待機期間の活用については、特に力動的心理療法の文献に詳しく述べられています。
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>この図解は、カウンセリングの本質的な仕組みを理解することを目的としています。</p>
+        <p>個別の状況については、必ず専門家にご相談ください。</p>
+        <p style="margin-top: 15px;">&copy; 2026 岡村雄一郎</p>
+    </footer>
+
+    <script>
+        function togglePerspective(perspective) {
+            // ボタンの状態切り替え
+            const buttons = document.querySelectorAll('.toggle-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // 表示内容の切り替え
+            const clientViews = document.querySelectorAll('.client-view');
+            const counselorViews = document.querySelectorAll('.counselor-view');
+
+            if (perspective === 'client') {
+                clientViews.forEach(el => el.style.display = 'block');
+                counselorViews.forEach(el => el.style.display = 'none');
+            } else {
+                clientViews.forEach(el => el.style.display = 'none');
+                counselorViews.forEach(el => el.style.display = 'block');
+            }
+        }
+
+        // スクロールアニメーション
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
